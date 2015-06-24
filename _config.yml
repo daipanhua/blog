@@ -18,7 +18,7 @@ aboutme_photo: https://avatars.githubusercontent.com/daipanhua # your photo.
 
 
 ### Site setting:
-ShowContactInfo: "False" # Personal Info (twitter,github,email) can be seen on aboutme-sidebar, those info only shown when ShowContactInfo == True
+ShowContactInfo: "True" # Personal Info (twitter,github,email) can be seen on aboutme-sidebar, those info only shown when ShowContactInfo == True
 default_column: "two" # blog style: two columns, if default_column != "two", you will see a one column blog.
 default_locale: "cn" # blog sidebar language set, only include: English(en) and Chinese (cn)
 
