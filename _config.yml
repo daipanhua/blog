@@ -109,21 +109,21 @@ customLinks:
 
 #comment config
 disqus:
-  config: false
-  id: minixalpha
+  config: true
+  id: slimmy2fatty
 
 
 #################################### global configure #######################################
 
 username: daipanhua
-baseurl: /StrayBirds
+baseurl: /blog
 markdown: redcarpet
 safe: false
 highlighter: pygments
 title: 绿色奇迹
 description: 
 theme: slate
-disqusname: daipanhua
+disqusname: slimmy2fatty
 
 # theme can be: hack, leap-day, merlot, midnight, minimal, modernist, slate, time-machine, kunka
 # those themes are all come from GitHub Pages Themes
