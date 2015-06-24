@@ -16,7 +16,7 @@ tag:java,线程
 
 第一是继承 Thread 类，实现 run 方法，并创建子类对象。
 
-``` java
+```java
 	public void startThreadUseSubClass() {
 		class MyThread extends Thread {
 			public void run() {
@@ -31,7 +31,7 @@ tag:java,线程
 
 另一种是传递给 Thread 构造函数一个 Runnable 对象。
 
-``` java
+```java
 	public void startThreadUseRunnalbe() {
 		Thread thread = new Thread(new Runnable() {
 			public void run() {
