@@ -92,9 +92,9 @@ author:
 
 #评论信息
 disqus:
-  config: true
+  config: false
   id: slimmy2fatty
 
 duoshuo:
-  config: false
-  id: zhanxin
+  config: true
+  id: daipanhua-blog
