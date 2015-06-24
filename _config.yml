@@ -116,7 +116,7 @@ disqus:
 #################################### global configure #######################################
 
 username: daipanhua
-baseurl: /blog
+baseurl: /daipanhua.github.com
 markdown: redcarpet
 safe: false
 highlighter: pygments
