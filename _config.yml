@@ -1,6 +1,6 @@
 ### Site info:
-title: Daipanhua de Blog
-tagline: Another Jekyll theme, Freshman twenty-first
+title: 代盼华的博客
+tagline: 面朝大海，春暖花开
 author: Lijia Yu
 email: daipanhua@gmail.com
 description: "面朝大海，春暖花开" # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
@@ -11,7 +11,7 @@ locale: zh_cn
 
 ### Personal info and site tools info:
 github_username:  daipanhua
-disqus_shortname: slimmy2fatty
+disqus_shortname: daipanhua
 favicon:     "/images/favicon.ico"
 aboutme: 我是代盼华，这是我的个人博客. # these are shown on aboutme-sidebar.
 aboutme_photo: https://avatars.githubusercontent.com/daipanhua # your photo.
