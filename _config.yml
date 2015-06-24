@@ -96,7 +96,6 @@ author:
 disqus:
   config: true
   id: slimmy2fatty
-  disqusname: denny
 
 duoshuo:
   config: false
