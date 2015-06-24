@@ -16,7 +16,7 @@ tag:java,线程
 
 第一是继承 Thread 类，实现 run 方法，并创建子类对象。
 
-
+``` java
 	public void startThreadUseSubClass() {
 		class MyThread extends Thread {
 			public void run() {
@@ -27,11 +27,11 @@ tag:java,线程
 		MyThread thread = new MyThread();
 		thread.start();
 	}
-
+```
 
 另一种是传递给 Thread 构造函数一个 Runnable 对象。
 
-
+``` java
 	public void startThreadUseRunnalbe() {
 		Thread thread = new Thread(new Runnable() {
 			public void run() {
@@ -40,7 +40,7 @@ tag:java,线程
 		});
 		thread.start();
 	}
-
+```
 
 当然， Runnalbe 对象，也不是只有这一种形式，例如如果我们想要线程执行时返回一个值，就需要用到另一种 Runnalbe 对象，它
 对原来的 Runnalbe 对象进行了包装。
