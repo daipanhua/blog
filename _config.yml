@@ -116,13 +116,13 @@ disqus:
 #################################### global configure #######################################
 
 username: daipanhua
-baseurl: 
+baseurl: /daipanhua.github.com
 markdown: redcarpet
 safe: false
 highlighter: pygments
-title: 代盼华的博客
-description: 面朝大海，春暖花开。
-theme: slate
+title: Denny 's blog
+description: 面朝大海 春暖花开
+theme: kunka
 disqusname: slimmy2fatty
 
 # theme can be: hack, leap-day, merlot, midnight, minimal, modernist, slate, time-machine, kunka
