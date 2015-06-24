@@ -4,8 +4,8 @@ title: Java 中的并发
 category: 技术
 comments: true
 tags:
--java
--线程
+- java
+- 线程
 ---
 
 
