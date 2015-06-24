@@ -120,8 +120,8 @@ baseurl:
 markdown: redcarpet
 safe: false
 highlighter: pygments
-title: 绿色奇迹
-description: 
+title: 代盼华的博客
+description: 面朝大海，春暖花开。
 theme: slate
 disqusname: slimmy2fatty
 
