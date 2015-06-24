@@ -54,7 +54,7 @@ nav:
   - text: 作品
     url: /works.html
   - text: 联系我
-    url: /contact/html
+    url: /contact.html
   - text: 博客源代码
     url: https://github.com/pizn/pizn.github.com
 
@@ -96,6 +96,7 @@ author:
 disqus:
   config: true
   id: slimmy2fatty
+  disqusname: denny
 
 duoshuo:
   config: false
