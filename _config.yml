@@ -1,101 +1,69 @@
-# Where things are
-source:       .
-destination:  ./_site
-plugins:      ./_plugins
-layouts:      ./_layouts
-paginate:     8
+### Site info:
+title: Freshman21
+tagline: Another Jekyll theme, Freshman twenty-first
+author: Lijia Yu
+email: yu@lijiayu.net
+description: "Freshman21 is a Jekyll blog theme." # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
+keywords: "Jekyll, theme, Freshman21"
+baseurl: "/freshman21" # the subpath of your site, e.g. /blog
+url: "http://yulijia.net/freshman21" # the base hostname & protocol for your site
+locale: en_US
 
-# Handling Reading
-safe:         false
-include:      [".htaccess"]
-exclude:      []
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-textile_ext:  "textile"
-
-# Filtering Content
-show_drafts:  null
-limit_posts:  0
-future:       true
-unpublished:  false
-
-# Conversion
-# markdown:     kramdown
-markdown:     redcarpet
-highlighter:  pygments
-lsi:          false
-excerpt_separator: "\n\n"
-
-# Serving
-detach:       false
-port:         4000
-host:         127.0.0.1
-baseurl:      "" # does not include hostname
-
-# Outputting
-permalink:     date
-paginate_path: /page:num
-timezone:      null
+### Personal info and site tools info:
+twitter_username: yulijia
+github_username:  yulijia
+disqus_shortname: freshman21
+favicon:     "/images/favicon.ico"
+aboutme: Hi, this is Lijia Yu. I made the Freshman21 theme. Please enjoy it. # these are shown on aboutme-sidebar.
+aboutme_photo: https://i.imgur.com/Mdc4szJl.jpg # your photo.
 
 
-#站点基础配置
-title: denny 's blog
-subTitle: 面朝大海，春暖花开
-description: 好好学习天天向上
-url: http://daipanhua.github.io
-feed: /atom.xml
+### Site setting:
+ShowContactInfo: "True" # Personal Info (twitter,github,email) can be seen on aboutme-sidebar, those info only shown when ShowContactInfo == True
+default_column: "two" # blog style: two columns, if default_column != "two", you will see a one column blog.
+default_locale: "en" # blog sidebar language set, only include: English(en) and Chinese (cn)
 
-#菜单配置
-nav:
-  - text: 首页
-    url: /index.html
-  - text: 文章归档
-    url: /archives.html
-  - text: 联系我
-    url: /contact.html
-  # - text: 博客源代码
-  #   url: https://github.com/pizn/pizn.github.com
+locales:
+    en:
+      Aboutme: "About Me"
+      Archives: "Archives"
+      Blogroll: "Blogroll"
+      Categories: "Categories"
+      Copyright_Notice: "Copyright Notice"
+      Recent_Posts: "Recent Posts"
+      Tags: "Tags"
+      Previous: "Older"
+      Next: "Newer"
+      PostedInCategories: "Posted in"
+      Taggedwith: "and tagged"  
+      PostDate: "on "
+    cn:
+      Aboutme: "关于我"
+      Archives: "存档"
+      Blogroll: "良师益友"        
+      Categories: "分类目录"    
+      Copyright_Notice: "版权声明"
+      Recent_Posts: "近期文章"
+      Tags: "标签" 
+      Previous: "前一页"
+      Next: "后一页"
+      PostedInCategories: "目录:"   
+      Taggedwith: "| 标签:"
+      PostDate: "| 发表时间: "
 
-#theme config
-themes: /themes/violet
 
-#配置你喜欢的顶部背景图片
-headimg:
-  - item: /themes/violet/images/hdbg01.jpg
-  - item: /themes/violet/images/hdbg02.jpg
-  - item: /themes/violet/images/hdbg03.jpg
-  - item: /themes/violet/images/hdbg04.jpg
+### your Blogroll info, only name can shown on the page.
 
-#关注我
-# follow:
-#   - class: fa-google-plus
-#     url: http://www.zhanxin.info
-#   - class: fa-facebook
-#     url: http://www.zhanxin.info
-#   - class: fa-github
-#     url: http://github.com/pizn
-#   - class: fa-weibo
-#     url: http://weibo.com/pizner
-#   - class: fa-renren
-#     url: http://www.zhanxin.info
-#   - class: fa-pinterest
-#     url: http://www.zhanxin.info
-#   - class: fa-twitter
-#     url: http://www.zhanxin.info
-#   - class: fa-rss
-#     url: http://www.zhanxin.info
+Blogroll:
+    - name: Freshman21
+      href: http://yulijia.net/freshman21
+      title: Another Jekyll blog theme
+    - name: author's website
+      href: http://yulijia.net/
+      title: Lijia Yu's website
 
-#作者信息
-author:
-  link: 
-  img: https://avatars.githubusercontent.com/daipanhua
 
-#评论信息
-disqus:
-  config: false
-  id: slimmy2fatty
-
-duoshuo:
-  config: true
-  id: daipanhua-blog
+### Build settings
+markdown: kramdown
+highlighter: pygments
+paginate: 5
