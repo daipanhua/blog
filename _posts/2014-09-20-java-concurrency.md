@@ -16,7 +16,6 @@ comments: true
 第一是继承 Thread 类，实现 run 方法，并创建子类对象。
 
 {% highlight css %}
-#container {
 	public void startThreadUseSubClass() {
 		class MyThread extends Thread {
 			public void run() {
@@ -27,13 +26,11 @@ comments: true
 		MyThread thread = new MyThread();
 		thread.start();
 	}
-}
 {% endhighlight%}
 
 另一种是传递给 Thread 构造函数一个 Runnable 对象。
 
 {% highlight css %}
-#container {
 	public void startThreadUseRunnalbe() {
 		Thread thread = new Thread(new Runnable() {
 			public void run() {
@@ -42,14 +39,12 @@ comments: true
 		});
 		thread.start();
 	}
-}
 {% endhighlight%}
 
 当然， Runnalbe 对象，也不是只有这一种形式，例如如果我们想要线程执行时返回一个值，就需要用到另一种 Runnalbe 对象，它
 对原来的 Runnalbe 对象进行了包装。
 
 {% highlight java %}
-#container {
 	public void startFutureTask() {
 		FutureTask<Integer> task = new FutureTask<>(new Callable<Integer>() {
 			public Integer call() {
@@ -68,7 +63,6 @@ comments: true
 			e.printStackTrace();
 		}
 	}
-}
 {% endhighlight%}
 
 ## 结束线程
@@ -108,7 +102,6 @@ wait 会阻塞住，并释放已经得到的锁。一直到有人调用 notify �
 JDK 的 java.util.concurrent.Executors 类提供了几个静态的方法，用于创建不同类型的线程池。
 
 {% highlight java %}
-#container {
 	ExecutorService service = Executors.newFixedThreadPool(10);
 	ArrayList<Future<Integer>> results = new ArrayList<>();
 	for (int i = 0; i < 14; i++) {
@@ -118,7 +111,6 @@ JDK 的 java.util.concurrent.Executors 类提供了几个静态的方法，用�
 		});
 		results.add(r);
 	}
-}
 {% endhighlight%}
 
 `newFixedThreadPool` 可以创建固定数目的线程，一旦创建不会自动销毁线程，即便长期没有任务。除非显式关闭线程池。如果任务队列中有任务，就取出任务执行。
