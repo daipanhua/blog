@@ -1,120 +1,27 @@
-StrayBirds
-==========
+##pizn.github.com
 
-基于 GitHub Pages 搭建的极简博客，所有操作都可以直接通过浏览器完成。
+这是 <a href="http://www.zhanxin.info" target="_blank" title="掌心">zhanxin.info</a> 在 GitHub 上使用 <a href="http://jekyllrb.com" target="_blank" >Jekyll</a> 搭建的个人博客的所有源代码。该博客的目的 用来<strong>快速</strong>记录工作，学习，生活的一点一滴。更多分享，更多交流，更多进步。
 
-## 示例
+This is the source code for <a href="http://www.zhanxin.info" target="_blank" title="zhanxin.info">zhanxin.info</a> -- powered by <a href="http://jekyllrb.com" target="_blank" title="jekyll">Jekyll</a>. And this blog use for fast recording my work, learning and life.
 
-可以通过访问 [StrayBirds](http://minixalpha.github.io/StrayBirds/) 看到最终
-的效果，下面是截图:
+##如何达到快速呢？
 
-![ui-demo](/images/ui_demo.png)
+发表一篇文章，就像写代码一样，直接在编辑器上进行书写和总结。不需要进入网站的后台什么的，就可以完成文章的编辑了。
 
-## 教程
+编辑完之后，Git 提交就可以完成。随后的一些事情，Jekyll 就会帮你处理好。恩，我觉得这可以省了我好多时间。又可以像 CodeReview 一样来阅读自己的文章，学而时习之。
 
-### 使用方法
+##LICENSE
 
-1. 注册 GitHub，得到用户名，例如 minixbeta
-2. 到 [StrayBirds](https://github.com/minixalpha/StrayBirds) 页面，单击右上
-角的 Fork
-3. 到你 Fork 后的项目中，将 `_config.yml` 中的 username 修改为你的用户名 minixbeta
-4. 访问你的博客 http://minixbeta.github.io/StrayBirds/
+pizn.github.com 上的文章采用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">署名-非商业性使用-相同方式共享</a>协议进行授权，转载请注明转自：<a href="http://pizn.github.com" target="_blank">zhanxin.info</a>.
 
-![create_project](/images/create_project.gif)
+设计界面由<a href="http://pizn.net" target="_blank">zhanxin.info</a>设计提供，图片视觉设计版权由 zhanxin.lin 所有。<del><a href="http://www.pizn.me" target="_blank">PIZn.me</a>的紫色主题是 PIZn 的私有主题，</del>如果你喜欢这个主题，请提前跟我说下，并注明是 <a href="http://www.zhanxin.info" target="_blank">zhanxin.lin</a>开发和设计的。谢谢。<del>PS: 我很鄙视别人用了我的劳动成果，还注明是他自己设计的。请尊重在下！</del>
 
-**注意如果你是第一次使用 GitHub Pages，可能不会马上生效，等一段时间即可**
+站点其他代码采用  <a href="http://zh.wikipedia.org/wiki/MIT_License" target="_blank">MIT License 许可。</a>
 
-**按照配置中说的方法修改项目名称可能会加快这一进程**
+##联系我
 
-### 配置
+如果你也想像我这样来写博客，搭建 GitHub 博客，如果有啥不懂的，我们互相交流！
 
-* 修改主题
-
-在 `_confg.yml` 下修改 theme 的值。
-
-**注意修改主题后，并不会马上生效，GitHub 还要反应一段时间，所以请耐心等待**
-
-**修改主题后, 按照配置中说的方法修改项目名称可能会加快这一进程**
-
-可选主题包括：
-
-- hack
-	![hack-demo](/images/hack-demo.png)
-- leap-day
-	![leap-day-demo](/images/leap-day-demo.png)
-- merlot
-	![merlot-demo](/images/merlot-demo.png)
-- midnight
-	![midnight-demo](/images/midnight-demo.png)
-- minimal
-	![minimal-demo](/images/minimal-demo.png)
-- modernist
-	![modernist-demo](/images/modernist-demo.png)
-- slate
-	![slate-demo](/images/slate-demo.png)
-- time-machine
-	![time-machine-demo](/images/time-machine-demo.png) 
-- kunka
-	![kunka-demo](/images/kunka-demo.png)
-
-* 修改项目名
-
-例如将 StrayBirds 修改为 blog，那么你需要做的是
-
-1. 在项目的 Setting 中将 Repository name 从 StrayBirds 修改为 blog
-2. 将 `_config.yml` 中的 baseurl 修改为 /blog
-3. 通过 http://minixbeta.github.io/blog/ 来访问你的新博客
-
-![create_post](/images/change_project_name.gif)
+邮箱: zhanxin.info@gmail.com
 
 
-* 修改评论系统用户名
-
-我们的评论系统使用的是 [Disqus](https://disqus.com/)，如果你想在这份博客模板中使用，需要先去注册一下，然后得到一个用户名，例如 minixalpha。然后在 `_config.yml` 中将 disqusname 修改为 minixalpha。
-
-**千万注意: 如果你开启评论系统一定要修改这个值，不然就评论到我的评论系统中去了**
-
-### 添加文章
-
-在 `_post` 目录下添加形如 `2014-10-26-title.md` 的文章，用 markdown 格式
-撰写博客。
-
-例如：
-
-```
----
-layout: post
-title: Java 中的并发
-comments: true
-category: 技术
----
-
-
-## 如何创建一个线程
-
-按 Java 语言规范中的说法，创建线程只有一种方式，就是创建一个 Thread 对象。而从 HotSpot 虚拟机的角度看，创建一个虚拟机线程
-有两种方式，一种是创建 Thread 对象，另一种是创建 一个本地线程，加入到虚拟机线程中。
-
-...
-
-```
-
-其中 `layout` 表示布局，不用改变，`title` 表示文章题目，`comments` 表示是否要开户评论。
-
-![create_post](/images/create_post.gif)
-
-## 感谢
-
-Thanks to authors of the themes:
-
-* [hack](https://github.com/sundaykofax/baby-legs), Licence: None
-* [leap-day](https://github.com/mattgraham/leapday), Licence: [Creative Commons Attribution](http://creativecommons.org/licenses/by/3.0/)
-* [merlot](https://github.com/cameronmcefee/headsmart/tree/gh-pages), Licence: None
-* [midnight](https://github.com/briandoll/change-inside-surroundings.vim/tree/gh-pages), Licence: None
-* [minimal](https://github.com/orderedlist/minimal), Licence: [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/)
-* [modernist](https://github.com/orderedlist/modernist), Licence: [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/)
-* [slate](https://github.com/jasoncostello/slate), Licence: MIT
-* [time-machine](https://github.com/jonrohan/time-machine-theme), Licence: None
-* [kunka](https://github.com/pizn/kunka), Licence: MIT, author: [zhanxin.info](http://www.zhanxin.info/)
-
-All the themes are intergrated in the blog template, with some modifies.

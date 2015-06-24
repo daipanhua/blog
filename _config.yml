@@ -1,7 +1,3 @@
-
-
-
-######################### theme kunka condigure ##############################################
 # Where things are
 source:       .
 destination:  ./_site
@@ -42,85 +38,65 @@ paginate_path: /page:num
 timezone:      null
 
 
-#Site config
-title: Jekyll Theme
-description: Just another Jekyll theme design and code by zhanxin.info.
-keywords: Jekyll Theme
-url: /StrayBirds
+#站点基础配置
+title: denny 's blog
+subTitle: 面朝大海，春暖花开
+description: 好好学习天天向上
+url: http://daipanhua.github.io
 feed: /atom.xml
-favicon: http://jekyllrb.com/favicon.png
 
-#Nav config
+#菜单配置
 nav:
   - text: 首页
-    url: index.html
-  - text: 分类目录 
-    url: navigations/categories.html
+    url: /index.html
   - text: 文章归档
-    url: navigations/archives.html
+    url: /archives.html
+  - text: 作品
+    url: /works.html
   - text: 联系我
-    url: navigations/contact.html
-  - text: 友情链接
-    url: navigations/links.html
+    url: /contact/html
+  - text: 博客源代码
+    url: https://github.com/pizn/pizn.github.com
 
-#Author config
+#theme config
+themes: /themes/violet
+
+#配置你喜欢的顶部背景图片
+headimg:
+  - item: /themes/violet/images/hdbg01.jpg
+  - item: /themes/violet/images/hdbg02.jpg
+  - item: /themes/violet/images/hdbg03.jpg
+  - item: /themes/violet/images/hdbg04.jpg
+
+#关注我
+# follow:
+#   - class: fa-google-plus
+#     url: http://www.zhanxin.info
+#   - class: fa-facebook
+#     url: http://www.zhanxin.info
+#   - class: fa-github
+#     url: http://github.com/pizn
+#   - class: fa-weibo
+#     url: http://weibo.com/pizner
+#   - class: fa-renren
+#     url: http://www.zhanxin.info
+#   - class: fa-pinterest
+#     url: http://www.zhanxin.info
+#   - class: fa-twitter
+#     url: http://www.zhanxin.info
+#   - class: fa-rss
+#     url: http://www.zhanxin.info
+
+#作者信息
 author:
-    name: daipanhua
-    email: daipanhua@gmail.com
-    imageLink: https://avatars.githubusercontent.com/daipanhua
-    simpleIntro: denny
-    detailIntro:
-      <p>原名 代盼华，2014年6月毕业于湖北工程学院</p>
-      <p>毕业后就职于深圳分期乐网络科技，技术方向为Android开发</p>
+  link: 
+  img: https://avatars.githubusercontent.com/daipanhua
 
-#Follow me, you can choose your icon by http://fortawesome.github.io/Font-Awesome/icons/#brand
-follow:
-  - class: icon-rss
-    url: /atom.xml
-  - class: icon-weibo
-    url: http://weibo.com
-  - class: icon-renren
-    url: http://renren.com
-  - class: icon-github-alt
-    url: http://github.com
-  - class: icon-twitter
-    url: http://twitter.com
-  - class: icon-google-plus
-    url: http://google.com
-
-#Links
-customLinks:
-  - item:
-    - text: 分期乐
-      url: http://www.fenqile.com
-
-    message: ABOUT
-  - item:
-    - text: Font Awesome
-      url: http://fortawesome.github.io/Font-Awesome/
-    - text: Google Font
-      url: http://www.google.com/fonts/
-    - text: jQuery
-      url: http://jquery.com/
-    message: 其他相关链接
-
-#comment config
+#评论信息
 disqus:
   config: true
   id: slimmy2fatty
 
-
-#################################### global configure #######################################
-
-username: daipanhua
-baseurl: 
-markdown: redcarpet
-safe: false
-highlighter: pygments
-title: Denny 's blog
-description: 面朝大海 春暖花开
-theme: kunka
-disqusname: denny
-
-# theme can be: hack, leap-day, merlot, midnight, minimal, modernist, slate, time-machine, kunka
-# those themes are all come from GitHub Pages Themes
+duoshuo:
+  config: false
+  id: zhanxin
