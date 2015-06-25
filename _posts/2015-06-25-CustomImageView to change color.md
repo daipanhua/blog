@@ -13,21 +13,23 @@ description: 给ImageView自动加上按压效果
 
 ---
 
+-------------
+
 #功能#
 在App开发中，我们经常会用到有图标的按钮，而有时候设计并没有给图标指定按压或选中的效果，或者图标是从网络获取而来的。为了能在xml中直接指定图标的按压效果，通过自定义的ImageView来实现此功能。
+----------------
 
 #技术实现#
 主要用到了是`android.graphics.ColorMatrix`这个类，通过颜色矩阵对原图片的颜色进行修改，而生成新的BitMap,并将其添加到StateListDrawable中。
-
+--------------------
 #实现细节#
-
+------------------------
 {% highlight java %}
 public class CustomImageview extends ImageView {
 
     private final int color;
     private final int colorFadeType;
     private float degrade;
-
 
     public CustomImageview(Context context) {
         this(context, null, 0);
@@ -41,7 +43,6 @@ public class CustomImageview extends ImageView {
 
     public CustomImageview(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.customImageview);
 		//获取指定的color，作为按压效果的颜色，通过做运算换算出颜色矩阵的值
         color = array.getColor(R.styleable.customImageview_customImageViewColor, 0);
@@ -53,7 +54,6 @@ public class CustomImageview extends ImageView {
         colorFadeType = array.getInt(R.styleable.customImageview_colorFadeType, -1);
 		// 颜色变化的程度
         degrade = array.getFloat(R.styleable.customImageview_degrade, 0.9f);
-
         array.recycle();
     }
 
@@ -109,6 +109,5 @@ public class CustomImageview extends ImageView {
         sd.addState(new int[]{}, new BitmapDrawable(getContext().getResources(), bmpOriginal));
         setImageDrawable(sd);
     }
-
 }
 {% endhighlight java %}
