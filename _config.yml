@@ -16,7 +16,8 @@ favicon:     "/images/favicon.ico"
 aboutme: 我是代盼华，这是我的个人博客. # these are shown on aboutme-sidebar.
 aboutme_photo: https://avatars.githubusercontent.com/daipanhua # your photo.
 
-
+analytics :
+    provider : custom
 ### Site setting:
 ShowContactInfo: "True" # Personal Info (twitter,github,email) can be seen on aboutme-sidebar, those info only shown when ShowContactInfo == True
 default_column: "two" # blog style: two columns, if default_column != "two", you will see a one column blog.

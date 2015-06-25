@@ -1,7 +1,7 @@
 ---
 
 published: true
-title: 给ImageView自动加上按压效果 
+title: 给ImageView自动加上按压效果(前景色，非背景) 
 layout: post
 author: 代盼华
 category: 技术
