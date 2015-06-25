@@ -11,7 +11,7 @@ locale: zh_cn
 
 ### Personal info and site tools info:
 github_username:  daipanhua
-disqus_shortname: daipanhua
+# disqus_shortname: daipanhua
 favicon:     "/images/favicon.ico"
 aboutme: 我是代盼华，这是我的个人博客. # these are shown on aboutme-sidebar.
 aboutme_photo: https://avatars.githubusercontent.com/daipanhua # your photo.
