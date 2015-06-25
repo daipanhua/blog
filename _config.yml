@@ -67,3 +67,8 @@ Blogroll:
 markdown: kramdown
 highlighter: pygments
 paginate: 5
+
+comments :
+  provider : duoshuo
+  duoshuo : 
+    short_name : daipanhua-blog
