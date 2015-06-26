@@ -150,4 +150,4 @@ public class CustomImageview extends ImageView {
 
 不足之处，希望大家能在评论中指正 ~~
 
-demo下载连接：[百度网盘](http://pan.baidu.com/s/1jGpcI3c)
+demo下载连接：[百度网盘](http://pan.baidu.com/s/1jGpcI3c){:target="_blank"}
