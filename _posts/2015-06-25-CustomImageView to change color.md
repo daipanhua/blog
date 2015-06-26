@@ -25,89 +25,129 @@ description: 给ImageView自动加上按压效果
 {% highlight java %}
 public class CustomImageview extends ImageView {
 
-    private final int color;
-    private final int colorFadeType;
-    private float degrade;
+	private int color = 0;
+	private int colorFadeType = -1;
+	private float degrade;
 
-    public CustomImageview(Context context) {
-        this(context, null, 0);
+	public CustomImageview(Context context) {
+		this(context, null, 0);
 
-    }
+	}
 
-    public CustomImageview(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+	public CustomImageview(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
 
-    }
+	}
 
-    public CustomImageview(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.customImageview);
-		//获取指定的color，作为按压效果的颜色，通过做运算换算出颜色矩阵的值
-        color = array.getColor(R.styleable.customImageview_customImageViewColor, 0);
-		//颜色变化类型：
-		// -1未指定，将保持原ImageView的效果
-		// 1 颜色变深
-		// 2 变成指定颜色
-		// 4 颜色变浅
-        colorFadeType = array.getInt(R.styleable.customImageview_colorFadeType, -1);
-		// 颜色变化的程度
-        degrade = array.getFloat(R.styleable.customImageview_degrade, 0.9f);
-        array.recycle();
-    }
+	public CustomImageview(Context context, AttributeSet attrs, int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
 
-	//因为项目中，是配合ImageLoader来加载图片的，而ImageLoader最终通过setImageBitmap来展现图片
-	//因此在此处重写此方法。
-    @Override
-    public void setImageBitmap(Bitmap bmpOriginal) {
-        if (colorFadeType == -1) {
-            super.setImageBitmap(bmpOriginal);
-            return;
-        }
-        if (color != 0 && colorFadeType != 2) {
-            throw new IllegalArgumentException("ColorFadeType should set to type of 'color'");
-        }
-        if (degrade > 0.9) {
-            degrade = 0.9f;
-        }
-        float rgbRate = 1.0f;
-        float aTransparency = 1.0f;
-        if (colorFadeType == 1) {
-            aTransparency = 0.5f;
-        } else if (colorFadeType == 2) {
-            rgbRate = 0;
-        } else if (colorFadeType == 4) {
-            rgbRate = degrade;
-        }
-		//获取R G B的 255值
-        int colorR = (color >> 16) & 0xff;
-        int colorG = (color >> 8) & 0xff;
-        int colorB = color & 0xff;
-		//颜色变化矩阵
-        float[] colorArray = new float[]{rgbRate, 0, 0, 0, colorR,
-                0, rgbRate, 0, 0, colorG,
-                0, 0, rgbRate, 0, colorB,
-                0, 0, 0, aTransparency, 0};
+		TypedArray array = context.obtainStyledAttributes(attrs,
+				R.styleable.customImageview);
+		// color做运算换算出颜色矩阵的值
+		color = array.getColor(
+				R.styleable.customImageview_customImageViewColor, 0);
+		colorFadeType = array.getInt(R.styleable.customImageview_colorFadeType,
+				-1);
+		degrade = array.getFloat(R.styleable.customImageview_degrade, 0.9f);
+		array.recycle();
+		setImageDrawable(getDrawable());
+	}
 
-        int width, height;
-        height = bmpOriginal.getHeight();
-        width = bmpOriginal.getWidth();
+	@Override
+	public void setImageBitmap(Bitmap bmpOriginal) {
+		if (colorFadeType != 1 && colorFadeType != 2 && colorFadeType != 4) {
+			setDrawable(new BitmapDrawable(getResources(), bmpOriginal));
+			return;
+		}
+		if (color != 0 && colorFadeType != 2) {
+			throw new IllegalArgumentException(
+					"ColorFadeType should set to type of 'color'");
+		}
+		// 变深用比率，变浅用透明度
+		if (degrade > 0.9) {
+			degrade = 0.9f;
+		}
+		float rgbRate = 1.0f;
+		float aTransparency = 1.0f;
+		if (colorFadeType == 1) {
+			aTransparency = 0.5f;
+		} else if (colorFadeType == 2) {
+			rgbRate = 0;
+		} else if (colorFadeType == 4) {
+			rgbRate = degrade;
+		}
 
-        Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        Canvas c = new Canvas(bmpGrayscale);
-        Paint paint = new Paint();
-        ColorMatrix cm = new ColorMatrix();
-        cm.set(colorArray);
-        ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
-        paint.setColorFilter(f);
-        c.drawBitmap(bmpOriginal, 0, 0, paint);
-        StateListDrawable sd = new StateListDrawable();
-        //注意该处的顺序，只要有一个状态与之相配，背景就会被换掉
-        //所以不要把大范围放在前面了，如果sd.addState(new[]{},normal)放在第一个的话，就没有什么效果了
-        sd.addState(new int[]{android.R.attr.state_pressed}, new BitmapDrawable(getContext().getResources(), bmpGrayscale));
-        sd.addState(new int[]{}, new BitmapDrawable(getContext().getResources(), bmpOriginal));
-        setImageDrawable(sd);
-    }
+		int colorR = (color >> 16) & 0xff;
+		int colorG = (color >> 8) & 0xff;
+		int colorB = color & 0xff;
+
+		float[] colorArray = new float[] { rgbRate, 0, 0, 0, colorR, 0,
+				rgbRate, 0, 0, colorG, 0, 0, rgbRate, 0, colorB, 0, 0, 0,
+				aTransparency, 0 };
+
+		int width, height;
+		height = bmpOriginal.getHeight();
+		width = bmpOriginal.getWidth();
+
+		Bitmap bmpGrayscale = Bitmap.createBitmap(width, height,
+				Bitmap.Config.ARGB_8888);
+		Canvas c = new Canvas(bmpGrayscale);
+		Paint paint = new Paint();
+		ColorMatrix cm = new ColorMatrix();
+		cm.set(colorArray);
+		ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
+		paint.setColorFilter(f);
+		c.drawBitmap(bmpOriginal, 0, 0, paint);
+
+		StateListDrawable sd = new StateListDrawable();
+		// 注意该处的顺序，只要有一个状态与之相配，背景就会被换掉
+		// 所以不要把大范围放在前面了，如果sd.addState(new[]{},normal)放在第一个的话，就没有什么效果了
+		sd.addState(new int[] { android.R.attr.state_pressed },
+				new BitmapDrawable(getContext().getResources(), bmpGrayscale));
+		sd.addState(new int[] {}, new BitmapDrawable(getContext()
+				.getResources(), bmpOriginal));
+		setDrawable(sd);
+	}
+
+	@Override
+	public void setImageDrawable(Drawable drawable) {
+		this.setImageBitmap(((BitmapDrawable) drawable).getBitmap());
+	}
+
+	private void setDrawable(Drawable d) {
+		Class clazz = ImageView.class;
+		try {
+			Method m = clazz
+					.getDeclaredMethod("updateDrawable", Drawable.class);
+			m.setAccessible(true);
+			m.invoke(this, d);
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		requestLayout();
+		invalidate();
+	}
+
+	@Override
+	public void setImageResource(int resId) {
+		super.setImageResource(resId);
+		setImageDrawable(getDrawable());
+	}
+}
 }
 {% endhighlight java %}
 
 不足之处，希望大家能在评论中指正 ~~
+
+demo下载连接：[百度网盘](http://pan.baidu.com/s/1jGpcI3c)
