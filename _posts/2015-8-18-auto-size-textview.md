@@ -6,7 +6,6 @@ author: 代盼华
 category: 技术
 tags: 
 - TextView
-description: TextView固定长度时，自动设置文字大小以适应宽度
 ---
 
 
